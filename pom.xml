@@ -12,6 +12,12 @@
     <name>issueof</name>
     <description>JIRA plugin with additional jql functions.</description>
     <packaging>atlassian-plugin</packaging>
+    <scm>
+        <connection>scm:git:git://github.com/stanislavin/issueof.git</connection>
+        <developerConnection>scm:git:git@github.com:stanislavin/issueof.git</developerConnection>
+        <url>https://github.com/stanislavin/issueof</url>
+        <tag>${scmTag}</tag>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>com.atlassian.jira</groupId>
