@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+    <resource type="i18n" name="i18n" location="issues-from-epics-by-query-function"/>
+    <web-resource key="issueof-resources" name="issueof Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="issueof.css" location="/css/issueof.css"/>
+        <resource type="download" name="issueof.js" location="/js/issueof.js"/>
+        <resource type="download" name="images/" location="/images"/>
+        <context>issueof</context>
+    </web-resource>
+    <jql-function
+            key="issues-from-epics-by-query-function"
+            class="org.stanislavin.issueof.jira.jql.IssuesFromEpicsByQueryFunction"
+            name="Find issues from epics by query">
+        <description key="issues-from-epics-by-query-function.description">Additional SQL function to expand epics by query</description>
+        <fname>issuesFromEpicsByQuery</fname>
+        <list>true</list>
+    </jql-function>
+    <jql-function
+            key="linked-issues-from-issues-by-query-function"
+            class="org.stanislavin.issueof.jira.jql.LinkedIssuesFromIssuesByQueryFunction"
+            name="Find linked issues from issues by query">
+        <description key="linked-issues-from-issues-by-query-function.description">Additional SQL function to expand issues by query</description>
+        <fname>linkedIssuesFromIssuesByQuery</fname>
+        <list>true</list>
+    </jql-function>
+</atlassian-plugin>
