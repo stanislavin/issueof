@@ -26,6 +26,17 @@ Pluguin will do the following:
 - find issues by jql ```(project = MYPROJ or labels in (myproj)) and issueType = Epic```
 - find linked issues for each epic and return list of them
 
+### lengthOf
+Issues in *MYPROJ* project which have been in more that 1 sprint:
+```
+issue in lengthOf("project = MYPROJ", Sprint, ">", 1)
+```
+
+Pluguin will do the following:
+- find issues by jql ```project = MYPROJ```
+- find custom field ```Sprint```
+- for each issue get the number of sprints and filter out those who have more than 1 sprint
+
 ## Installation	
 *(assuming you have Atlassian SDK installed & configured)*
 - go into plugin folder

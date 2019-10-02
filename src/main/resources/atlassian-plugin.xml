@@ -32,4 +32,12 @@
         <fname>linkedIssuesFromIssuesByQuery</fname>
         <list>true</list>
     </jql-function>
+    <jql-function
+            key="length-of"
+            class="org.stanislavin.issueof.jira.jql.LengthOf"
+            name="Get length of some array field of issue identified by query">
+        <description key="length-of.description">Additional SQL function to get length of some array field of issue identified by query</description>
+        <fname>lengthOf</fname>
+        <list>true</list>
+    </jql-function>
 </atlassian-plugin>

@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class IssuesFromEpicsByQueryFunction extends BaseByQueryFunction {
 
     public IssuesFromEpicsByQueryFunction(@ComponentImport SearchService searchService, @ComponentImport JqlQueryParser jqlQueryParser) {
-        super(searchService, jqlQueryParser);
+        super(searchService, jqlQueryParser, "issuesFromEpicsByQuery");
     }
 
     @Nonnull
@@ -33,11 +33,6 @@ public class IssuesFromEpicsByQueryFunction extends BaseByQueryFunction {
                 .flatMap(List::stream)
                 .map(issue -> new QueryLiteral(operand, issue.getId()))
                 .collect(Collectors.toList());
-    }
-
-    @Nonnull
-    public String getFunctionName() {
-        return "issuesFromEpicsByQuery";
     }
 
     private List<Issue> getEpicsByQuery(ApplicationUser user, String query) {

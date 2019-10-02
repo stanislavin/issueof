@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class LinkedIssuesFromIssuesByQueryFunction extends BaseByQueryFunction {
 
     public LinkedIssuesFromIssuesByQueryFunction(@ComponentImport SearchService searchService, @ComponentImport JqlQueryParser queryParser) {
-        super(searchService, queryParser);
+        super(searchService, queryParser, "linkedIssuesFromIssuesByQuery");
     }
 
     @Nonnull
@@ -33,12 +33,6 @@ public class LinkedIssuesFromIssuesByQueryFunction extends BaseByQueryFunction {
                 .flatMap(List::stream)
                 .map(issue -> new QueryLiteral(functionOperand, issue.getId()))
                 .collect(Collectors.toList());
-    }
-
-    @Nonnull
-    @Override
-    public String getFunctionName() {
-        return "linkedIssuesFromIssuesByQuery";
     }
 
     private List<Issue> getLinkedIssues(ApplicationUser user, Issue issue) {
